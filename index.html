@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mahmood Ali Khan - Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Inter', sans-serif; }
+    body { background: #f9f9f9; color: #333; line-height: 1.6; padding: 20px; }
+    header, section, footer { max-width: 900px; margin: auto; padding: 20px 0; }
+    h1, h2, h3 { color: #1a1a1a; }
+    nav a { margin-right: 15px; text-decoration: none; color: #007acc; }
+    .hero { padding: 40px 0; text-align: center; display: flex; flex-direction: column; align-items: center; }
+    .hero img { width: 160px; height: 160px; border-radius: 50%; object-fit: cover; margin-bottom: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+    .hero h1 { font-size: 2.5rem; }
+    .hero p { font-size: 1.1rem; margin-top: 10px; text-align: center; }
+    .section-title { margin: 30px 0 10px; font-size: 1.5rem; border-bottom: 2px solid #ddd; display: inline-block; }
+    ul { list-style: none; padding-left: 0; }
+    li { margin-bottom: 10px; }
+    .project { margin-bottom: 20px; }
+    .contact a { color: #007acc; text-decoration: none; display: inline-block; margin-right: 15px; }
+    .btn { display: inline-block; padding: 8px 16px; background: #007acc; color: white; text-decoration: none; border-radius: 4px; margin-top: 10px; }
+  </style>
+</head>
+<body>
+  <header class="hero">
+    <img src="WhatsApp Image 2025-03-23 at 15.24.49_b0e4ed99.jpg" alt="Mahmood Ali Khan">
+    <h1>Mahmood Ali Khan</h1>
+    <p>Data Science graduate student at SUNY Buffalo with expertise in data analysis, machine learning, and big data</p>
+  </header>
+
+  <section>
+    <h2 class="section-title">About Me</h2>
+    <p>I'm currently pursuing an MS in Data Science at SUNY Buffalo. I specialize in data analysis, machine learning, and big data systems. I love turning raw data into impactful insights using Python, SQL, and powerful visualization tools.</p>
+  </section>
+
+  <section>
+    <h2 class="section-title">Skills</h2>
+    <ul>
+      <li><strong>Programming & Tools:</strong> Python, R, Tableau, Power BI, matplotlib, seaborn</li>
+      <li><strong>Databases:</strong> SQL, MySQL, OracleSQL, PostgreSQL</li>
+      <li><strong>Libraries & Frameworks:</strong> pandas, NumPy, scikit-learn, TensorFlow, PyTorch, Spark</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2 class="section-title">Projects</h2>
+
+    <div class="project">
+      <h3>Credit Score Classification</h3>
+      <p>Built a machine learning pipeline using Scikit-learn and PCA for credit score classification. Deployed via FastAPI and Streamlit on AWS with Docker and MLflow.</p>
+    </div>
+
+    <div class="project">
+      <h3>Automatic Number Plate Recognition</h3>
+      <p>Used deep learning and image processing to detect and extract vehicle number plates for tracking and security systems.</p>
+    </div>
+
+    <div class="project">
+      <h3>Taxi Fare Prediction</h3>
+      <p>Predicted NYC taxi fares using statistical modeling in R and Python. Focused on preprocessing and feature engineering to boost model accuracy.</p>
+    </div>
+  </section>
+
+  <section>
+    <h2 class="section-title">Resume</h2>
+    <a href="RESUME_MAHMOOD.pdf" class="btn" download>Download My Resume</a>
+  </section>
+
+  <section class="contact">
+    <h2 class="section-title">Contact</h2>
+    <p>Email: <a href="mailto:mahmoodalikhan66@gmail.com">mahmoodalikhan66@gmail.com</a></p>
+    <p><a href="https://linkedin.com/in/mahmood-ali-khan-" target="_blank">LinkedIn</a>
+       <a href="https://github.com/mahmoodalikhan7" target="_blank">GitHub</a></p>
+  </section>
+
+  <footer style="text-align:center; margin-top: 40px; font-size: 0.9rem;">
+    © 2025 Mahmood Ali Khan. All rights reserved.
+  </footer>
+</body>
+</html>
