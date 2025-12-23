@@ -4,79 +4,742 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Mahmood Ali Khan - Portfolio</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
   <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Inter', sans-serif; }
-    body { background: #f9f9f9; color: #333; line-height: 1.6; padding: 20px; }
-    header, section, footer { max-width: 900px; margin: auto; padding: 20px 0; }
-    h1, h2, h3 { color: #1a1a1a; }
-    nav a { margin-right: 15px; text-decoration: none; color: #007acc; }
-    .hero { padding: 40px 0; text-align: center; display: flex; flex-direction: column; align-items: center; }
-    .hero img { width: 160px; height: 160px; border-radius: 50%; object-fit: cover; margin-bottom: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
-    .hero h1 { font-size: 2.5rem; }
-    .hero p { font-size: 1.1rem; margin-top: 10px; text-align: center; }
-    .section-title { margin: 30px 0 10px; font-size: 1.5rem; border-bottom: 2px solid #ddd; display: inline-block; }
-    ul { list-style: none; padding-left: 0; }
-    li { margin-bottom: 10px; }
-    .project { margin-bottom: 20px; }
-    .contact a { color: #007acc; text-decoration: none; display: inline-block; margin-right: 15px; }
-    .btn { display: inline-block; padding: 8px 16px; background: #007acc; color: white; text-decoration: none; border-radius: 4px; margin-top: 10px; }
+    html {
+      scroll-behavior: smooth;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Inter', sans-serif;
+    }
+
+    body {
+      background: radial-gradient(circle at top, #1f2933 0, #020617 45%, #000000 100%);
+      color: #e5e5e5;
+      line-height: 1.7;
+      padding: 0 16px 40px;
+      min-height: 100vh;
+    }
+
+    .page {
+      max-width: 950px;
+      margin: 18px auto 0;
+      background: linear-gradient(145deg, #020617, #020617, #020817);
+      border-radius: 18px;
+      padding: 0 22px 26px;
+      box-shadow: 0 22px 60px rgba(0, 0, 0, 0.7);
+      border: 1px solid rgba(148, 163, 184, 0.25);
+    }
+
+    /* NAVBAR */
+    .top-nav {
+      max-width: 950px;
+      margin: 0 auto;
+      padding: 14px 4px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      background: rgba(2, 6, 23, 0.94);
+      backdrop-filter: blur(14px);
+      z-index: 20;
+      border-bottom: 1px solid rgba(55, 65, 81, 0.8);
+      animation: fadeDown 0.6s ease-out forwards;
+    }
+
+    .top-nav .logo {
+      font-weight: 700;
+      font-size: 0.95rem;
+      color: #f9fafb;
+      letter-spacing: 0.22em;
+    }
+
+    .top-nav .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .top-nav a {
+      position: relative;
+      text-decoration: none;
+      color: #8bcbff;
+      font-size: 0.9rem;
+      padding-bottom: 2px;
+    }
+
+    .top-nav a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -2px;
+      width: 0;
+      height: 2px;
+      background: linear-gradient(90deg, #38bdf8, #6366f1);
+      border-radius: 999px;
+      transition: width 0.25s ease-out;
+    }
+
+    .top-nav a:hover::after {
+      width: 100%;
+    }
+
+    .top-nav a:hover {
+      color: #e0f2fe;
+    }
+
+    /* HERO */
+    header.hero {
+      padding: 32px 0 20px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 24px;
+      align-items: center;
+      border-bottom: 1px solid #1f2933;
+      animation: fadeInUp 0.7s ease-out forwards;
+      opacity: 0;
+      animation-delay: 0.05s;
+    }
+
+    .hero-left {
+      flex: 1 1 220px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    .hero img {
+      width: 170px;
+      height: 170px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 16px;
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.9);
+      border: 2px solid rgba(148, 163, 184, 0.5);
+      transition: transform 0.45s ease, box-shadow 0.45s ease, border-color 0.45s ease;
+      animation: float 5s ease-in-out infinite;
+    }
+
+    .hero img:hover {
+      transform: translateY(-4px) scale(1.03);
+      box-shadow: 0 24px 60px rgba(15, 23, 42, 0.9);
+      border-color: #38bdf8;
+    }
+
+    .hero-name {
+      font-size: 2.1rem;
+      font-weight: 700;
+      color: #f9fafb;
+    }
+
+    .hero-tagline {
+      font-size: 1rem;
+      margin-top: 6px;
+      color: #cbd5f5;
+    }
+
+    .hero-location {
+      margin-top: 6px;
+      font-size: 0.9rem;
+      color: #9ca3af;
+    }
+
+    .hero-actions {
+      margin-top: 14px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    /* BUTTONS */
+    .btn {
+      display: inline-block;
+      padding: 9px 18px;
+      background: linear-gradient(135deg, #0ea5e9, #6366f1);
+      color: white !important;
+      text-decoration: none;
+      border-radius: 999px;
+      font-size: 0.9rem;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 10px 30px rgba(56, 189, 248, 0.45);
+      transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
+      white-space: nowrap;
+    }
+
+    .btn.secondary {
+      background: transparent;
+      color: #38bdf8 !important;
+      border: 1px solid #38bdf8;
+      box-shadow: none;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px) scale(1.02);
+      filter: brightness(1.05);
+      box-shadow: 0 16px 40px rgba(56, 189, 248, 0.55);
+    }
+
+    .btn.secondary:hover {
+      background: rgba(15, 23, 42, 0.9);
+      box-shadow: 0 10px 26px rgba(37, 99, 235, 0.45);
+    }
+
+    .hero-right {
+      flex: 2 1 280px;
+      font-size: 0.98rem;
+      color: #e5e7eb;
+    }
+
+    .hero-right p {
+      margin-bottom: 8px;
+    }
+
+    /* SECTIONS */
+    section {
+      padding: 24px 0 10px;
+      border-bottom: 1px solid #111827;
+      opacity: 0;
+      animation: fadeInUp 0.75s ease-out forwards;
+    }
+
+    section:nth-of-type(1) { animation-delay: 0.12s; }
+    section:nth-of-type(2) { animation-delay: 0.18s; }
+    section:nth-of-type(3) { animation-delay: 0.24s; }
+    section:nth-of-type(4) { animation-delay: 0.30s; }
+    section:nth-of-type(5) { animation-delay: 0.36s; }
+    section:nth-of-type(6) { animation-delay: 0.42s; }
+    section:nth-of-type(7) { animation-delay: 0.48s; }
+
+    section:last-of-type {
+      border-bottom: none;
+    }
+
+    .section-title {
+      font-size: 1.4rem;
+      font-weight: 600;
+      margin-bottom: 10px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: #f9fafb;
+      position: relative;
+    }
+
+    .section-title::after {
+      content: "";
+      height: 2px;
+      width: 56px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, #38bdf8, #6366f1);
+      margin-left: 4px;
+    }
+
+    p {
+      margin-bottom: 6px;
+      color: #e5e7eb;
+    }
+
+    /* SKILLS GRID */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 16px;
+      margin-top: 10px;
+    }
+
+    .skill-block {
+      background: radial-gradient(circle at top left, #1f2937, #020617);
+      border-radius: 12px;
+      padding: 12px 14px;
+      box-shadow: 0 14px 32px rgba(15, 23, 42, 0.8);
+      font-size: 0.93rem;
+      border: 1px solid rgba(148, 163, 184, 0.35);
+      transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+    }
+
+    .skill-block:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 20px 50px rgba(30, 64, 175, 0.9);
+      border-color: #38bdf8;
+    }
+
+    .skill-block h3 {
+      font-size: 1rem;
+      margin-bottom: 4px;
+      color: #e5e7eb;
+    }
+
+    .skill-block ul {
+      margin-top: 4px;
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .skill-block li {
+      margin-bottom: 3px;
+      color: #cbd5f5;
+    }
+
+    /* EXPERIENCE & PROJECTS */
+    .item {
+      margin-top: 10px;
+      padding: 10px 12px;
+      border-radius: 10px;
+      background: rgba(15, 23, 42, 0.5);
+      border: 1px solid rgba(31, 41, 55, 0.9);
+      box-shadow: 0 12px 30px rgba(15, 23, 42, 0.85);
+      transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+    }
+
+    .item:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 18px 46px rgba(37, 99, 235, 0.75);
+      border-color: #38bdf8;
+    }
+
+    .item h3 {
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: #f9fafb;
+    }
+
+    .meta {
+      font-size: 0.9rem;
+      color: #9ca3af;
+      margin-bottom: 4px;
+    }
+
+    .item ul {
+      margin-top: 4px;
+      padding-left: 16px;
+      list-style: disc;
+    }
+
+    .item ul li {
+      margin-bottom: 4px;
+      color: #d1d5db;
+    }
+
+    .project {
+      margin-top: 12px;
+      padding: 10px 12px;
+      border-radius: 10px;
+      border-left: 3px solid #1f2933;
+      background: rgba(15, 23, 42, 0.6);
+      box-shadow: 0 10px 28px rgba(15, 23, 42, 0.9);
+      transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+    }
+
+    .project:hover {
+      transform: translateY(-3px);
+      border-left-color: #38bdf8;
+      background: radial-gradient(circle at top left, rgba(56, 189, 248, 0.18), rgba(15, 23, 42, 0.98));
+      box-shadow: 0 18px 46px rgba(37, 99, 235, 0.85);
+    }
+
+    .project h3 {
+      font-size: 1.02rem;
+      font-weight: 600;
+      color: #f9fafb;
+    }
+
+    .project .meta {
+      font-style: italic;
+      color: #a5b4fc;
+    }
+
+    .project ul {
+      padding-left: 16px;
+      list-style: disc;
+    }
+
+    .project ul li {
+      margin-bottom: 4px;
+      color: #e5e7eb;
+    }
+
+    /* CERTIFICATIONS & SIMPLE LISTS */
+    section ul {
+      padding-left: 16px;
+      list-style: disc;
+    }
+
+    section ul li {
+      margin-bottom: 4px;
+      color: #e5e7eb;
+    }
+
+    /* CONTACT */
+    .contact a {
+      color: #38bdf8;
+      text-decoration: none;
+      margin-right: 12px;
+      position: relative;
+    }
+
+    .contact a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -2px;
+      width: 0;
+      height: 1px;
+      background: #38bdf8;
+      transition: width 0.25s ease-out;
+    }
+
+    .contact a:hover::after {
+      width: 100%;
+    }
+
+    .contact a:hover {
+      color: #e0f2fe;
+    }
+
+    /* FOOTER */
+    footer {
+      text-align: center;
+      margin-top: 30px;
+      font-size: 0.85rem;
+      color: #9ca3af;
+      padding-bottom: 10px;
+    }
+
+    /* ANIMATIONS */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeDown {
+      from {
+        opacity: 0;
+        transform: translateY(-8px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes float {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-6px);
+      }
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 700px) {
+      .top-nav {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+      }
+
+      header.hero {
+        flex-direction: column;
+      }
+
+      .hero-right {
+        text-align: left;
+      }
+
+      .page {
+        padding: 0 16px 24px;
+      }
+    }
   </style>
+
 </head>
 <body>
-  <header class="hero">
-    <img src="WhatsApp Image 2025-03-23 at 15.24.49_b0e4ed99.jpg" alt="Mahmood Ali Khan">
-    <h1>Mahmood Ali Khan</h1>
-    <p>Data Science graduate student at SUNY Buffalo with expertise in data analysis, machine learning, and big data</p>
-  </header>
-
-  <section>
-    <h2 class="section-title">About Me</h2>
-    <p>I'm currently pursuing an MS in Data Science at SUNY Buffalo. I specialize in data analysis, machine learning, and big data systems. I love turning raw data into impactful insights using Python, SQL, and powerful visualization tools.</p>
-  </section>
-
-  <section>
-    <h2 class="section-title">Skills</h2>
-    <ul>
-      <li><strong>Programming & Tools:</strong> Python, R, Tableau, Power BI, matplotlib, seaborn</li>
-      <li><strong>Databases:</strong> SQL, MySQL, OracleSQL, PostgreSQL</li>
-      <li><strong>Libraries & Frameworks:</strong> pandas, NumPy, scikit-learn, TensorFlow, PyTorch, Spark</li>
-    </ul>
-  </section>
-
-  <section>
-    <h2 class="section-title">Projects</h2>
-
-    <div class="project">
-      <h3>Credit Score Classification</h3>
-      <p>Built a machine learning pipeline using Scikit-learn and PCA for credit score classification. Deployed via FastAPI and Streamlit on AWS with Docker and MLflow.</p>
+  <!-- Top navigation -->
+  <nav class="top-nav">
+    <div class="logo">MAHMOOD ALI KHAN</div>
+    <div class="nav-links">
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#experience">Experience</a>
+      <a href="#projects">Projects</a>
+      <a href="#education">Education</a>
+      <a href="#certifications">Certifications</a>
+      <a href="#contact">Contact</a>
     </div>
+  </nav>
 
-    <div class="project">
-      <h3>Automatic Number Plate Recognition</h3>
-      <p>Used deep learning and image processing to detect and extract vehicle number plates for tracking and security systems.</p>
-    </div>
+  <div class="page">
+    <!-- HERO -->
+    <header class="hero">
+      <div class="hero-left">
+        <img src="WhatsApp Image 2025-03-23 at 15.24.49_b0e4ed99.jpg" alt="Mahmood Ali Khan">
+        <h1 class="hero-name">Mahmood Ali Khan</h1>
+        <p class="hero-tagline">Data Science Graduate · Machine Learning · Statistics · Big Data · SQL · Python</p>
+        <p class="hero-location">Buffalo, NY · Open to internships and full-time roles</p>
+        <div class="hero-actions">
+          <a href="RESUME_MAHMOOD.pdf" class="btn" download>Download Resume (PDF)</a>
+          <a href="#contact" class="btn secondary">Contact Me</a>
+        </div>
+      </div>
 
-    <div class="project">
-      <h3>Taxi Fare Prediction</h3>
-      <p>Predicted NYC taxi fares using statistical modeling in R and Python. Focused on preprocessing and feature engineering to boost model accuracy.</p>
-    </div>
-  </section>
+      <div class="hero-right">
+        <p>
+          I am a recent Data Science graduate from The State University of New York at Buffalo.
+          I work on analytics, machine learning, and data systems across large datasets.
+        </p>
+        <p>
+          I use Python, SQL, R, and AWS to build end-to-end pipelines, models, and dashboards.
+          I focus on clear insights that teams can act on.
+        </p>
+      </div>
+    </header>
 
-  <section>
-    <h2 class="section-title">Resume</h2>
-    <a href="RESUME_MAHMOOD.pdf" class="btn" download>Download My Resume</a>
-  </section>
+    <!-- ABOUT -->
+    <section id="about">
+      <h2 class="section-title">About Me</h2>
+      <p>
+        I’m a recent Data Science graduate from The State University of New York at Buffalo (Dec 2025) with a strong foundation in machine learning, statistics, and big data technologies.I also hold a B.Tech in Computer Science & Engineering from Anurag University, where I built the fundamentals that guide my work today. Over time, I’ve developed a passion for applying data-driven methods to solve real-world problems, especially in predictive modeling, large-scale analytics, and intelligent systems.
+      </p>
 
-  <section class="contact">
-    <h2 class="section-title">Contact</h2>
-    <p>Email: <a href="mailto:mahmoodalikhan66@gmail.com">mahmoodalikhan66@gmail.com</a></p>
-    <p><a href="https://linkedin.com/in/mahmood-ali-khan-" target="_blank">LinkedIn</a>
-       <a href="https://github.com/mahmoodalikhan7" target="_blank">GitHub</a></p>
-  </section>
+      <p>
+        I have hands-on experience across the data lifecycle, from cleaning and transforming datasets to deploying models in production. My toolkit includes Python, R, SQL, Spark, and Hadoop, along with cloud platforms like AWS and Snowflake. I also work extensively with visualization tools such as Tableau, Power BI, and Streamlit to create dashboards that turn complex insights into clear business decisions.
+      </p>
 
-  <footer style="text-align:center; margin-top: 40px; font-size: 0.9rem;">
-    © 2025 Mahmood Ali Khan. All rights reserved.
-  </footer>
+      <p>
+        At NoQs Digital, I built dashboards in Tableau and Power BI to track KPIs across campaigns and automated SQL-based ETL pipelines for executive reporting. At Citridot, I worked with large-scale financial data, designing SQL and Python pipelines that improved efficiency by 30% and integrating alternative data sources for better profiling. These internships strengthened my ability to connect technical solutions with business impact.
+      </p>
+
+      <p>
+        Apart from internships, I’ve led projects such as an AI-powered skin disease detection system using U-Net++ for segmentation and Llama-2 for diagnostic reporting, supported by Grad-CAM and LIME for interpretability. In NYC Taxi Data Analysis, I built AWS-based ML pipelines, developed forecasting models, and deployed dashboards with real-time performance metrics. I also created a credit score classification pipeline, deploying models with FastAPI and AWS for real-time use.
+      </p>
+
+      <p>
+        To complement this, I’ve earned certifications including Google Data Analytics Professional Certificate by Coursera and Introduction to Deep Learning by Infosys Springboard. These strengthened both my theoretical knowledge and applied skills.
+      </p>
+
+      <p>
+        I’m passionate about designing and deploying scalable machine learning systems that drive real-world impact in healthcare, finance, and consumer applications.
+      </p>
+      
+    </section>
+
+    <!-- SKILLS -->
+    <section id="skills">
+      <h2 class="section-title">Skills</h2>
+      <div class="skills-grid">
+        <div class="skill-block">
+          <h3>Programming & Visualization</h3>
+          <ul>
+            <li>Python, R</li>
+            <li>pandas, NumPy, scikit-learn</li>
+            <li>matplotlib, seaborn</li>
+            <li>Tableau, Power BI</li>
+            <li>Git, GitHub</li>
+          </ul>
+        </div>
+
+        <div class="skill-block">
+          <h3>Cloud & Data Platforms</h3>
+          <ul>
+            <li>AWS: Lambda, S3, Glue, Athena, RDS</li>
+            <li>Snowflake</li>
+            <li>Big Data: Hadoop, Spark</li>
+            <li>MLflow (experiment tracking)</li>
+            <li>Docker (basic)</li>
+          </ul>
+        </div>
+
+        <div class="skill-block">
+          <h3>Databases</h3>
+          <ul>
+            <li>SQL, MySQL</li>
+            <li>PostgreSQL, Oracle SQL</li>
+            <li>Data Modeling, Normalization, Constraints</li>
+            <li>Indexing, EXPLAIN ANALYZE</li>
+          </ul>
+        </div>
+
+        <div class="skill-block">
+          <h3>Machine Learning & AI</h3>
+          <ul>
+            <li>Regression, Classification, Clustering</li>
+            <li>XGBoost, TensorFlow, PyTorch</li>
+            <li>Deep Learning, NLP, LLMs</li>
+            <li>Feature Selection, PCA</li>
+          </ul>
+        </div>
+
+        <div class="skill-block">
+          <h3>Analytics</h3>
+          <ul>
+            <li>Statistical Inference, A/B Testing</li>
+            <li>KPI Tracking, User Growth Analytics</li>
+            <li>Customer Segmentation</li>
+            <li>Anomaly Detection</li>
+          </ul>
+        </div>
+
+        <div class="skill-block">
+          <h3>Delivery</h3>
+          <ul>
+            <li>Clear stakeholder communication</li>
+            <li>Clean, documented analysis and code</li>
+            <li>Reproducible workflows</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- EXPERIENCE -->
+    <section id="experience">
+      <h2 class="section-title">Experience</h2>
+
+      <div class="item">
+        <h3>Data Analyst Intern · NoQs Digital Pvt. Ltd</h3>
+        <p class="meta">May 2023 – Jul 2023 · Hyderabad, India</p>
+        <ul>
+          <li>Analyzed multi-channel digital marketing data using SQL and Python to identify underperforming campaigns, improving budget allocation efficiency by 18%.</li>
+          <li>Designed Tableau and Power BI dashboards to monitor daily KPIs (CTR, CAC, conversion funnels), reducing reporting turnaround time by 40%.</li>
+          <li>Automated weekly performance reporting via SQL-based extraction workflows, cutting manual Excel effort by 35%.</li>
+          <li>Conducted exploratory analysis on engagement metrics to surface churn indicators, supporting retention strategies that improved engagement by 12%.</li>
+          <li>Partnered with marketing and operations teams to deliver recommendations adopted across three active campaigns.</li>
+        </ul>
+      </div>
+
+      <div class="item">
+        <h3>Junior Data Analyst Intern · Citridot</h3>
+        <p class="meta">Jan 2023 – Mar 2023 · Remote</p>
+        <ul>
+          <li>Investigated 1M+ transactional records using SQL and Python to detect irregular spending patterns, improving fraud flag precision by 20%.</li>
+          <li>Applied statistical testing and regression analysis to evaluate credit risk signals, reducing false positives by 15%.</li>
+          <li>Streamlined recurring analytics workflows with SQL-driven pipelines and Python scripts, improving analyst productivity by 30%.</li>
+          <li>Integrated alternative customer attributes into analytical datasets to improve risk segmentation and portfolio monitoring.</li>
+          <li>Delivered concise insight summaries to senior analysts and business stakeholders to support data-backed decisions.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects">
+      <h2 class="section-title">Projects</h2>
+
+      <div class="project">
+        <h3>AI-Powered Skin Disease Detection: Two-Stage System with Segmentation and Multimodal LLMs</h3>
+        <p class="meta">Machine Learning · Computer Vision · LLMs</p>
+        <ul>
+          <li>Built a two-stage pipeline with U-Net++ for lesion segmentation (IoU 84%, Dice 0.86) and a fine-tuned Llama-2 model to generate diagnostic reports from images and patient metadata.</li>
+          <li>Cleaned and augmented the HAM10000 dataset to address class imbalance and improve performance across diverse skin tones.</li>
+          <li>Added interpretability using Grad-CAM and LIME to provide visual heatmaps and reasoning for clinical trust.</li>
+          <li>Benchmarked against U-Net, ResNet-50, DenseNet, MelNet, and traditional classifiers (SVM, Random Forest), achieving 88% accuracy.</li>
+          <li>Designed the system for cloud and edge deployment to support real-time use in low-resource settings.</li>
+        </ul>
+      </div>
+
+      <div class="project">
+        <h3>NYC Taxi Data Analysis and ML Pipelines</h3>
+        <p class="meta">Statistics · Machine Learning · AWS</p>
+        <ul>
+          <li>Built end-to-end pipelines on AWS using Lambda, S3, Glue, Athena, and RDS for automated ingestion, transformation, and storage.</li>
+          <li>Developed and tuned regression models (LightGBM, ARIMA, Prophet, ARMA) for fare and demand prediction with feature engineering (lag features, FFT-based features, feature selection).</li>
+          <li>Deployed batch inference pipelines and tracked experiments and results in MLflow for reproducibility and monitoring.</li>
+          <li>Designed Power BI and Streamlit dashboards with filters and real-time metrics (MAE, MAPE), using Athena to query large-scale datasets.</li>
+        </ul>
+      </div>
+
+      <div class="project">
+        <h3>E-Commerce Database Management System</h3>
+        <p class="meta">SQL · PostgreSQL · Data Modeling · Query Optimization</p>
+        <ul>
+          <li>Designed and engineered a production-ready relational database for an e-commerce platform using the Olist Brazilian dataset with 600,000+ real-world records, converting raw CSV data into a clean PostgreSQL schema that supports transactional and reporting workloads.</li>
+          <li>Normalized the dataset into BCNF by defining entity relationships, primary keys, and foreign key constraints, then implemented core tables for customers, orders, products, sellers, payments, reviews, and geolocation to reduce redundancy and improve consistency.</li>
+          <li>Performed end-to-end preprocessing and validation by handling missing values, correcting data types, enforcing referential integrity, and standardizing timestamps, then wrote complex SQL queries to analyze sales trends, customer behavior, seller revenue, and logistics performance.</li>
+          <li>Optimized slow queries using EXPLAIN ANALYZE, fixed sequential scans and inefficient joins with targeted indexes, and reduced execution time by about 85% on large analytical queries.</li>
+        </ul>
+      </div>
+
+      <div class="project">
+        <h3>Credit Score Classification</h3>
+        <p class="meta">Machine Learning · Model Deployment · MLOps</p>
+        <ul>
+          <li>Built a complete machine learning pipeline with preprocessing, feature engineering, and dimensionality reduction for credit score classification.</li>
+          <li>Evaluated Logistic Regression, Random Forest, and XGBoost models with hyperparameter tuning and PCA to improve predictive performance.</li>
+          <li>Deployed a containerized FastAPI service on the cloud for real-time inference, integrated with a Streamlit application for user interaction.</li>
+          <li>Implemented experiment tracking and model versioning using MLflow, with Docker for reproducible deployment.</li>
+        </ul>
+      </div>
+
+      <div class="project">
+        <h3>Automatic Number Plate Detection System</h3>
+        <p class="meta">Computer Vision · Image Processing · Machine Learning</p>
+        <ul>
+          <li>Developed an automated system to detect and recognize vehicle license plates using image processing and machine learning techniques.</li>
+          <li>Implemented robust detection and character recognition algorithms to handle varying lighting, angles, and image quality.</li>
+        </ul>
+      </div>
+
+
+    </section>
+
+    <!-- EDUCATION -->
+    <section id="education">
+      <h2 class="section-title">Education</h2>
+
+      <div class="item">
+        <h3>Master of Science in Data Science</h3>
+        <p class="meta">State University of New York at Buffalo · Buffalo, NY · Expected Dec 2025</p>
+        <p class="meta">
+          Selected coursework: Machine Learning, Data Mining, Statistical Learning, Big Data Analytics,
+          Database Systems, Cloud Computing, Deep Learning.
+        </p>
+      </div>
+
+      <div class="item">
+        <h3>Bachelor of Technology in Computer Science &amp; Engineering</h3>
+        <p class="meta">Anurag University · Hyderabad, India · Graduated May 2024</p>
+        <p class="meta">
+          Core topics: Data Structures and Algorithms, Operating Systems, Computer Networks, DBMS.
+        </p>
+      </div>
+    </section>
+
+    <!-- CERTIFICATIONS -->
+    <section id="certifications">
+      <h2 class="section-title">Certifications</h2>
+      <ul>
+        <li>Google Data Analytics Professional Certificate (Coursera)</li>
+        <li>IBM Data Science Professional Certificate (Coursera)</li>
+      </ul>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="contact">
+      <h2 class="section-title">Contact</h2>
+      <p>Email: <a href="mailto:mahmoodalikhan244@gmail.com">mahmoodalikhan244@gmail.com</a></p>
+      <p>
+        <a href="https://linkedin.com/in/mahmood-ali-khan-" target="_blank">LinkedIn</a>
+        <a href="https://github.com/mahmoodalikhan7" target="_blank">GitHub</a>
+      </p>
+    </section>
+
+    <footer>
+      © 2025 Mahmood Ali Khan. All rights reserved.
+    </footer>
+  </div>
 </body>
 </html>
